@@ -7,10 +7,42 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  height: 70px;
   padding: 10px;
   align-items: center;
   border-bottom: medium solid grey;
+  margin-bottom: 10px;
+  border-radius: 8pxs;
+  border: 2px solid darkgray;
+  background: black;
+  color: #A3C4BC;
 }
+
+/* .donor__name {
+  color: whitesmoke;
+} */
+
+.specie__name {
+  color: lightslategrey;
+}
+
+.donor__container:first-child {
+  border: medium solid goldenrod;
+  box-shadow: 0px 6px 8px 0;
+ }
+ .donor__container:nth-of-type(2) {
+  border: medium solid silver;
+  box-shadow: 0px 4px 6px 0;
+ }
+ .donor__container:nth-of-type(3) {
+  border-bottom: medium solid burlywood;
+  box-shadow: 0px 2px 3px 0;
+ }
+
+ .donor__container:hover {
+   background: white;
+   color: black;
+ }
 
 .donor__profile {
   display:flex ;
@@ -37,11 +69,18 @@ body {
  justify-content: center;
  margin-left: auto ;
  margin-right: 50px;
+ height: auto;
 }
 
+
 .percentage {
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
+  color: gray;
+}
+
+.percentage::after{
+  content: "%";
 }
 
 .amounts {
@@ -49,7 +88,33 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: -40px;
+  margin-top: -50px;
+  font-style:oblique;
+  color: #F2DDA4;
 }
 
+.amounts__text::before {
+  content: "$";
+}
 
+.of__text {
+    margin: 0 -5px;
+    color: lightgray;
+}
+
+.first__place {
+  border-bottom: 2px solid goldenrod;
+  box-shadow: 2px 2px 2px 1px;
+}
+
+.goal__amount {
+  color: #BFD7B5;
+}
+
+.header {
+  color: #413C58;
+}
+
+.current__amount{
+  font-weight: 900;
+}
