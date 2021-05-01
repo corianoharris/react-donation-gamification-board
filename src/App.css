@@ -6,41 +6,37 @@ body {
 .donor__container {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
+  width: 70%;
   height: 70px;
   padding: 10px;
-  align-items: center;
-  border-bottom: medium solid grey;
+  margin: 0 auto;
   margin-bottom: 10px;
-  border-radius: 8pxs;
-  border: 2px solid darkgray;
-  background: black;
-  color: #A3C4BC;
+  border-radius: 5px;
+  background: white;
+  color: black;
+  border-bottom: medium solid black;
 }
 
 /* .donor__name {
   color: whitesmoke;
 } */
 
-.specie__name {
-  color: lightslategrey;
+.specie__name{
+  color: brown;
 }
 
 .donor__container:first-child {
-  border: medium solid goldenrod;
-  box-shadow: 0px 6px 8px 0;
- }
+  border-bottom: medium solid goldenrod;
+}
  .donor__container:nth-of-type(2) {
-  border: medium solid silver;
-  box-shadow: 0px 4px 6px 0;
+  border-bottom: medium solid silver;
  }
  .donor__container:nth-of-type(3) {
-  border-bottom: medium solid burlywood;
-  box-shadow: 0px 2px 3px 0;
+  border-bottom: medium solid tan;
  }
 
  .donor__container:hover {
-   background: white;
+   background: #ededed;
    color: black;
  }
 
@@ -70,13 +66,14 @@ body {
  margin-left: auto ;
  margin-right: 50px;
  height: auto;
+ margin-top: -20px;
 }
 
 
 .percentage {
   font-size: 36px;
   text-align: center;
-  color: gray;
+  color: darkgrey;
 }
 
 .percentage::after{
@@ -90,25 +87,22 @@ body {
   gap: 10px;
   margin-top: -50px;
   font-style:oblique;
-  color: #F2DDA4;
+  color: white;
 }
 
 .amounts__text::before {
   content: "$";
 }
 
+
 .of__text {
     margin: 0 -5px;
-    color: lightgray;
+    color: black;
 }
 
-.first__place {
-  border-bottom: 2px solid goldenrod;
-  box-shadow: 2px 2px 2px 1px;
-}
 
 .goal__amount {
-  color: #BFD7B5;
+  color: brown;
 }
 
 .header {
@@ -117,4 +111,5 @@ body {
 
 .current__amount{
   font-weight: 900;
+  color: green;
 }

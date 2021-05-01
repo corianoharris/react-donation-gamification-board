@@ -3,8 +3,8 @@ const data = [{
     img: "https://randomuser.me/api/portraits/men/54.jpg",
     name: "Corey Burden",
     specie: "Cheetah",
-    percentage:3.5,
-    current_donation_amount:35,
+    percentage:35,
+    current_donation_amount:350,
     donation_goal_amount: 1000,
 }, 
 {
@@ -29,6 +29,30 @@ const data = [{
   specie: "Weasel",
   percentage: 68,
   current_donation_amount: 680,
+  donation_goal_amount: 1000,
+},
+{
+  img: "https://randomuser.me/api/portraits/women/12.jpg",
+  name: "Stephanie Autumn",
+  specie: "Jack Rabbit",
+  percentage: 92,
+  current_donation_amount: 920,
+  donation_goal_amount: 1000,
+},
+{
+  img: "https://randomuser.me/api/portraits/men/9.jpg",
+  name: "Ted Mathis",
+  specie: "King Cobra",
+  percentage: 10,
+  current_donation_amount: 100,
+  donation_goal_amount: 1000,
+},
+{
+  img: "https://randomuser.me/api/portraits/men/7.jpg",
+  name: "Issac Thompson",
+  specie: "Bullfrog",
+  percentage: 72,
+  current_donation_amount: 720,
   donation_goal_amount: 1000,
 }
 ]

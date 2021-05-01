@@ -21,7 +21,7 @@ const Donor =() => {
       <>
       <div className="donor__container" key={index}>{donor.sor}
         <div className= "donor__profile">
-      <img className="image" src={donor.img} alt=""/>
+      <img className="image" src={donor.img} alt="A picture of the donor"/>
     <div className="info__container">
       <h2 className="donor__name" >{donor.name}</h2>
       <h4 className="specie__name">{donor.specie}</h4>
@@ -30,7 +30,7 @@ const Donor =() => {
     <div className="donation__container ">
       <h2 className="percentage">{donor.percentage}</h2>
       <div className="amounts" >
-        <p classname="amounts__text current__amount" >{donor.current_donation_amount}</p>
+        <p className="amounts__text current__amount" >{donor.current_donation_amount}</p>
         <p className="of__text">of</p>
         <p className="amounts__text goal__amount">{donor.donation_goal_amount}</p>
       </div>
