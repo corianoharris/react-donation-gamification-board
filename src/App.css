@@ -7,37 +7,37 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 70%;
-  height: 70px;
+  height: 20px;
   padding: 10px;
   margin: 0 auto;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background: white;
-  color: black;
-  border-bottom: medium solid black;
+  margin: 10px auto;
+  /* border-radius: 5px; */
+  background: black;
+  color: skyblue;
+  border-bottom: thin solid black;
 }
 
-/* .donor__name {
-  color: whitesmoke;
-} */
-
-.specie__name{
-  color: brown;
+.donor__name {
+  font-size: 1rem;
 }
 
 .donor__container:first-child {
-  border-bottom: medium solid goldenrod;
+  border-bottom: thick solid #fdd017;
+  box-shadow: 0px 5px 8px 0px black;
 }
+
+
  .donor__container:nth-of-type(2) {
-  border-bottom: medium solid silver;
+  border-bottom: thick solid #a9acb6;
+  box-shadow: 0px 3px 6px 0px black;
  }
  .donor__container:nth-of-type(3) {
-  border-bottom: medium solid tan;
+  border-bottom: thick solid #b87333;
+  box-shadow: 0px 1px 3px 0px black;
  }
 
  .donor__container:hover {
    background: #ededed;
-   color: black;
  }
 
 .donor__profile {
@@ -50,30 +50,31 @@ body {
 .specie__name::before {
   content: "Specie: ";
 }
-.specie__name{
-  margin-top: -20px;
+.specie__name {
+  color: darkgray;
+  font-size: 10px;
+  margin-top: -15px;
 }
 
 .image {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid skyblue;
 }
 
 .donation__container {
  display: block;
  justify-content: center;
- margin-left: auto ;
- margin-right: 50px;
  height: auto;
- margin-top: -20px;
+ margin: -30px 20px 10px auto;
 }
 
 
 .percentage {
-  font-size: 36px;
+  font-size: 24px;
   text-align: center;
-  color: darkgrey;
+  color: darkgray;
 }
 
 .percentage::after{
@@ -85,9 +86,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: -50px;
+  margin-top: -35px;
   font-style:oblique;
-  color: white;
+  color: skyblue;
+  font-size: 11px;
 }
 
 .amounts__text::before {
@@ -97,12 +99,14 @@ body {
 
 .of__text {
     margin: 0 -5px;
-    color: black;
+    font-weight: 600;
+    color: grey;
 }
 
 
 .goal__amount {
-  color: brown;
+  color: grey;
+  font-weight: 800;
 }
 
 .header {
@@ -111,5 +115,21 @@ body {
 
 .current__amount{
   font-weight: 900;
-  color: green;
+}
+
+@keyframes shine{
+  10% {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 0;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+  }
 }
