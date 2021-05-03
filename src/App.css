@@ -6,19 +6,21 @@ body {
 .donor__container {
   display: flex;
   justify-content: flex-start;
-  width: 70%;
-  height: 20px;
+  width: 100%;
+  height: 30px;
   padding: 10px;
-  margin: 0 auto;
   margin: 10px auto;
-  /* border-radius: 5px; */
   background: black;
   color: skyblue;
   border-bottom: thin solid black;
 }
 
+.header {
+  margin-bottom: -30px;
+}
+
 .donor__name {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .donor__container:first-child {
@@ -52,8 +54,10 @@ body {
 }
 .specie__name {
   color: darkgray;
-  font-size: 10px;
-  margin-top: -15px;
+  font-size: 12px;
+  margin-top: -20px;
+  word-wrap: normal;
+  word-break: break-all;
 }
 
 .image {
@@ -67,14 +71,14 @@ body {
  display: block;
  justify-content: center;
  height: auto;
- margin: -30px 20px 10px auto;
+ margin: -25px 20px 10px auto;
 }
 
 
 .percentage {
   font-size: 24px;
   text-align: center;
-  color: darkgray;
+  color: grey;
 }
 
 .percentage::after{
@@ -86,7 +90,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: -35px;
+  margin-top: -30px;
   font-style:oblique;
   color: skyblue;
   font-size: 11px;
@@ -117,19 +121,74 @@ body {
   font-weight: 900;
 }
 
-@keyframes shine{
-  10% {
-    opacity: 1;
-    top: -30%;
-    left: -30%;
-    transition-property: left, top, opacity;
-    transition-duration: 0.7s, 0.7s, 0.15s;
-    transition-timing-function: ease;
-  }
-  100% {
-    opacity: 0;
-    top: -30%;
-    left: -30%;
-    transition-property: left, top, opacity;
-  }
+.today__date {
+  text-align: right;
 }
+
+.date {
+  position: relative;
+  right: -20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: auto;
+  height: 30px;
+  margin-right: px;
+  margin-bottom: 30px;
+}
+
+.date__text {
+    margin-right: 5px;
+    font-size: .8rem;
+    font-weight: 500;
+    font-style:italic;
+}
+.today__date {
+    font-size: 1rem;
+    color: darkgrey;
+}
+
+@media only screen and (max-width: 640px) {
+
+  .header {
+    text-align: center;
+    margin-bottom: -20px;
+  }
+  .donor__name {
+    font-size: 10px;
+  }
+  .specie__name {
+    color: darkgray;
+    font-size: 8px;
+    margin-top: -10px;
+  }
+  .donation__container {
+    margin-right: 0;
+   }
+
+   .donation__container {
+    margin-top: -20px;
+   }
+
+   .percentage {
+    font-size: 20px;
+  }
+  .amounts {
+    font-size: 9px;
+    margin-top: -25px;
+  }
+  
+}
+
+@media only screen and (min-width: 641px) and (max-width: 960px) {
+ 
+  .donor__name {
+    font-size: 1rem;
+  }
+  .specie__name {
+    font-size: 10px;
+    margin-top: -15px;
+  }
+  
+}
+  

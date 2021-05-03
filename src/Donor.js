@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import data from "./data";
 import ReactList from 'react-list';
+import alert from "sweetalert";
 
 const Donor = () => {
 
@@ -10,20 +11,24 @@ const Donor = () => {
   percentage[1].style.color = "#b6afa9";
   percentage[2].style.color = "#b87333";
   }
-useEffect(()=> {
-  data.sort((a,b) => {
-    return b.current_donation_amount - a.current_donation_amount; 
-  });
-  percentageTop3colors();
-}, []);
 
+  const winner = (donor) => {
+    if(donor.percentage === 100) {
+    alert(`Congartulations, ${donor.name} you have reached the pledge goal of $1000!`);
+  }};
 
+  const todayDate = new Date().toLocaleDateString();
 
+ setTimeout(() => {
+  window.location.reload(renderItems());
+    console.log("timeout is working"); 
+  }, 10000);
+
+  
  const renderItems = () => {
-  
-  
   return (
     data.map((donor, index) => (
+      winner(donor),
       <>
       <div className="donor__container" key={index}>
         <div className= "donor__profile">
@@ -34,7 +39,7 @@ useEffect(()=> {
     </div>
     </div>
     <div className="donation__container ">
-      <h2 className="percentage">{Math.floor(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100)}</h2>
+      <h2 className="percentage">{Math.ceil(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100)}</h2>
       <div className="amounts" >
         <p className="amounts__text current__amount" >{donor.current_donation_amount}</p>
         <p className="of__text">of</p>
@@ -46,11 +51,22 @@ useEffect(()=> {
   ))
 )}
 
+useEffect(()=> {
+  data.sort((a,b) => {
+    return b.current_donation_amount - a.current_donation_amount; 
+  });
+  percentageTop3colors();
+}, []);
 
 return (
   <div>
     <h1 className="header">Leaderboard</h1>
+
     <div>
+      <div className="date">
+        <p className="date__text"> as of </p>
+      <h5 className ="today__date">{todayDate}</h5>
+      </div>
       <ReactList
         itemRenderer={renderItems}
         length={1}
