@@ -28,7 +28,7 @@ const Donor = () => {
  const renderItems = () => {
   return (
     data.map((donor, index) => (
-      donor.percentage = Math.ceil(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100),
+      donor.percentage = Math.floor(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100),
       winner(donor),
       <>
       <div className="donor__container" key={index}>
