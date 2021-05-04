@@ -1,42 +1,50 @@
 
 body {
   width: 70%;
+  height: auto;
   margin: 0 auto;
+  background:#d4d4d4;
 }
+
+/* .parent {
+  width: 100%;
+  height: auto;
+  border: 1px solid red;
+} */
 .donor__container {
   display: flex;
   justify-content: flex-start;
   width: 100%;
   height: 30px;
-  padding: 10px;
-  margin: 10px auto;
+  padding: 10px 6px 10px 10px;
+  margin: 10px auto -2px auto;
   background: black;
   color: skyblue;
-  border-bottom: thin solid black;
 }
 
 .header {
   margin-bottom: -30px;
+  color: black;
 }
 
 .donor__name {
   font-size: 1.25rem;
 }
 
-.donor__container:first-child {
+/* .donor__container:first-child {
   border-bottom: thick solid #fdd017;
   box-shadow: 0px 5px 8px 0px black;
-}
+} */
 
 
- .donor__container:nth-of-type(2) {
+ /* .donor__container:nth-of-type(2) {
   border-bottom: thick solid #a9acb6;
   box-shadow: 0px 3px 6px 0px black;
- }
- .donor__container:nth-of-type(3) {
+ } */
+ /* .donor__container:nth-of-type(3) {
   border-bottom: thick solid #b87333;
   box-shadow: 0px 1px 3px 0px black;
- }
+ } */
 
  .donor__container:hover {
    background: #ededed;
@@ -104,17 +112,18 @@ body {
 .of__text {
     margin: 0 -5px;
     font-weight: 600;
-    color: grey;
+    color: #9d9d9d;
 }
 
 
 .goal__amount {
-  color: grey;
+  color: #909090;
   font-weight: 800;
+  font-style: normal;
 }
 
 .header {
-  color: #413C58;
+  color: black;
 }
 
 .current__amount{
@@ -145,15 +154,26 @@ body {
 }
 .today__date {
     font-size: 1rem;
-    color: darkgrey;
+    color : #5d5d5d;
+    margin-right: 5px;
+    
+}
+.today_time {
+  font-size: .9rem;
+  margin-right: 5px;
+  font-style: italic;
 }
 
 @media only screen and (max-width: 640px) {
 
   .header {
     text-align: center;
-    margin-bottom: -20px;
+    margin-bottom: -10px;
   }
+  .donor__container {
+    margin-bottom:  -12px;
+  }
+
   .donor__name {
     font-size: 10px;
   }
@@ -182,6 +202,10 @@ body {
 
 @media only screen and (min-width: 641px) and (max-width: 960px) {
  
+  .donor__container {
+    margin-bottom:  -7px;
+  }
+
   .donor__name {
     font-size: 1rem;
   }

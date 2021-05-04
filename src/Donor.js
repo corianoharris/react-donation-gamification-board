@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import data from "./data";
 import ReactList from 'react-list';
 import alert from "sweetalert";
+import {Line} from 'rc-progress';
 
 const Donor = () => {
 
@@ -11,23 +12,30 @@ const Donor = () => {
   percentage[1].style.color = "#b6afa9";
   percentage[2].style.color = "#b87333";
   }
+  
 
   const winner = (donor) => {
-    if(donor.percentage === 100) {
-    alert(`Congartulations, ${donor.name} you have reached the pledge goal of $1000!`);
+    if(donor.current_donation_amount === 1000) {
+    alert(`Congartulations, ${donor.name}! You have reached your pledge goal of $1000!`);
   }};
 
   const todayDate = new Date().toLocaleDateString();
+  const today = new Date();
+  const time = today.getHours() + ":" + today.getMinutes();
+  if(today.getMinutes() < 10) {
+    document.getElementsByClassName('today__time').innerHTML = "0" + today.getMinutes();
+  }
 
  setTimeout(() => {
-  window.location.reload(renderItems());
+  window.location.reload(renderItems(), time);
     console.log("timeout is working"); 
-  }, 10000);
+  }, 60000);
 
   
  const renderItems = () => {
+  
   return (
-    data.map((donor, index) => (
+    data.map((donor, index, time) => (
       donor.percentage = Math.floor(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100),
       winner(donor),
       <>
@@ -48,6 +56,7 @@ const Donor = () => {
       </div>
     </div>
     </div>
+    <Line percent={donor.percentage} strokeWidth="1.5" strokeColor="skyblue" trailWidth="100"strokeLinecap="square"/>
     </>
   ))
 )}
@@ -67,6 +76,7 @@ return (
       <div className="date">
         <p className="date__text"> as of </p>
       <h5 className ="today__date">{todayDate}</h5>
+      <h4 className= "today_time">{time}</h4>
       </div>
       <ReactList
         itemRenderer={renderItems}
