@@ -39,6 +39,7 @@ const Donor = () => {
       donor.percentage = Math.floor(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100),
       winner(donor),
       <>
+      <div className="parent">
       <div className="donor__container" key={index}>
         <div className= "donor__profile">
       <img className="image" src={donor.img} alt={"A picture of the donor" + {index}}/>
@@ -56,10 +57,12 @@ const Donor = () => {
       </div>
     </div>
     </div>
-    <Line percent={donor.percentage} strokeWidth="1.5" strokeColor="skyblue" trailWidth="100"strokeLinecap="square"/>
+    <Line className="progressBar" percent={donor.percentage} strokeWidth="1.5" strokeColor="skyblue" trailWidth="100"strokeLinecap="square"/>
+    </div>
     </>
   ))
 )}
+
 
 useEffect(()=> {
   data.sort((a,b) => {
@@ -71,8 +74,6 @@ useEffect(()=> {
 return (
   <div>
     <h1 className="header">Leaderboard</h1>
-
-    <div>
       <div className="date">
         <p className="date__text"> as of </p>
       <h5 className ="today__date">{todayDate}</h5>
@@ -85,7 +86,6 @@ return (
         minSize={5}
         pageSize={6}
       />
-    </div>
   </div>
 );
 }
