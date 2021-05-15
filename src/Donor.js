@@ -1,30 +1,75 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import data from "./data";
 import ReactList from 'react-list';
 import alert from "sweetalert";
 import {Line} from 'rc-progress';
 
-const Donor = () => {
 
+
+
+
+
+
+const Donor = () => {
+  const [list, setList ] = useState(data);
   const percentageTop3colors = () => {
-  const percentage = document.querySelectorAll(".percentage");
-  percentage[0].style.color = "#fdd017";
-  percentage[1].style.color = "#b6afa9";
-  percentage[2].style.color = "#b87333";
+    const progress = document.querySelectorAll(".progressBar");
+  const topThreePlaces = document.querySelectorAll(".donor__container");
+    const percentage = document.querySelectorAll(".percentage");
+    
+    console.log(progress);
+ 
+    topThreePlaces[0].style.boxShadow = "2px 2px 6px black";
+
+    percentage[0].style.color = "#fdd017";
+    percentage[1].style.color = "#b6afa9";
+    percentage[2].style.color = "#b87333";
+
+    progress[0].style.boxShadow = "2px 2px 6px black";
   }
+
+
+
+  // Memoization
+  const header = ['Leaderboard'];
+  const title = useMemo(() => header[0]);
   
 
-  const winner = (donor) => {
-    if(donor.current_donation_amount === 1000) {
-    alert(`Congartulations, ${donor.name}! You have reached your pledge goal of $1000!`);
-  }};
+  const reachDonationGoal =(donor) => {
+      if(donor.current_donation_amount === 1000) {
+
+        alert(`Congratulations, ${donor.name}! You are the first donor to reach your pledge goal of $1000!`);
+      
+       setTimeout(() => {
+        removeDonor();
+         console.log(`${donor.name} is removed`);
+       }, 5000);
+      }
+
+    
+  };
+
+  const removeDonor = (item)  => {
+    console.log(item);
+    const newList = list.filter((item) => item.current_donation_amount !==  1000);
+    console.log("New List", newList)
+    setList(newList);
+  }
+
+
+
+
+
+
+  
 
   const todayDate = new Date().toLocaleDateString();
   const today = new Date();
-  const time = today.getHours() + ":" + today.getMinutes();
-  if(today.getMinutes() < 10) {
-    document.getElementsByClassName('today__time').innerHTML = "0" + today.getMinutes();
-  }
+  const hour = ('0'+today.getHours()).slice(-2)
+  const mins = ('0'+today.getMinutes()).slice(-2);
+  const time = hour + ":" + mins;
+  document.getElementsByClassName('today__time').innerText = time;
+
 
  setTimeout(() => {
   window.location.reload(renderItems(), time);
@@ -35,9 +80,9 @@ const Donor = () => {
  const renderItems = () => {
   
   return (
-    data.map((donor, index, time) => (
+    list.map((donor, index, time) => (
       donor.percentage = Math.floor(Math.abs(donor.current_donation_amount/donor.donation_goal_amount).toFixed(2) * 100),
-      winner(donor),
+      reachDonationGoal(donor),
       <>
       <div className="parent">
       <div className="donor__container" key={index}>
@@ -57,7 +102,16 @@ const Donor = () => {
       </div>
     </div>
     </div>
-    <Line className="progressBar" percent={donor.percentage} strokeWidth="1.5" strokeColor="skyblue" trailWidth="100"strokeLinecap="square"/>
+    <Line className="progressBar" 
+        percent={donor.percentage} 
+        strokeWidth="2" 
+        strokeColor="skyblue" 
+        trailColor = "grey"
+        trailWidth={donor.percentage}
+        strokeLinecap="butt"
+        gapPosition="bottom"
+        
+        />
     </div>
     </>
   ))
@@ -72,8 +126,9 @@ useEffect(()=> {
 }, []);
 
 return (
-  <div>
-    <h1 className="header">Leaderboard</h1>
+  
+  <div class="header-container">
+    <h1 className="header">{title}</h1>
       <div className="date">
         <p className="date__text"> as of </p>
       <h5 className ="today__date">{todayDate}</h5>
@@ -83,7 +138,7 @@ return (
         itemRenderer={renderItems}
         length={1}
         type="uniform"
-        minSize={5}
+        minSize={1}
         pageSize={6}
       />
   </div>
