@@ -5,11 +5,6 @@ import alert from "sweetalert";
 import {Line} from 'rc-progress';
 
 
-
-
-
-
-
 const Donor = () => {
   const [list, setList ] = useState(data);
   const percentageTop3colors = () => {
@@ -33,21 +28,26 @@ const Donor = () => {
   // Memoization
   const header = ['Leaderboard'];
   const title = useMemo(() => header[0]);
-  
+
 
   const reachDonationGoal =(donor) => {
       if(donor.current_donation_amount === 1000) {
-
+        
         alert(`Congratulations, ${donor.name}! You are the first donor to reach your pledge goal of $1000!`);
+        document.querySelector('.swal-overlay').classList.add('fade-in-message');
       
        setTimeout(() => {
         removeDonor();
          console.log(`${donor.name} is removed`);
-       }, 5000);
+       }, 30000);
       }
 
     
   };
+
+
+
+
 
   const removeDonor = (item)  => {
     console.log(item);
@@ -55,13 +55,6 @@ const Donor = () => {
     console.log("New List", newList)
     setList(newList);
   }
-
-
-
-
-
-
-  
 
   const todayDate = new Date().toLocaleDateString();
   const today = new Date();
@@ -72,7 +65,7 @@ const Donor = () => {
 
 
  setTimeout(() => {
-  window.location.reload(renderItems(), time);
+  window.location.reload(data, time);
     console.log("timeout is working"); 
   }, 60000);
 
